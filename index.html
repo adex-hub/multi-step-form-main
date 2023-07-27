@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- Sidebar start -->
+      <aside class="sidebar">
+        <div class="indicator">
+          <div class="number active">1</div>
+          <div class="indicator-info">
+            <div class="step">Step 1</div>
+            Your info
+          </div>
+        </div>
+
+        <div class="indicator">
+          <div class="number">2</div>
+          <div class="indicator-info">
+            <div class="step">Step 2</div>
+            Select plan
+          </div>
+        </div>
+
+        <div class="indicator">
+          <div class="number">3</div>
+          <div class="indicator-info">
+            <div class="step">Step 3</div>
+            Add-ons
+          </div>
+        </div>
+        <div class="indicator">
+          <div class="number">4</div>
+          <div class="indicator-info">
+            <div class="step">Step 4</div>
+            Summary
+          </div>
+        </div>
+      </aside>
+      <!-- Sidebar end -->
+      <div class="slider">
+        <!-- SLIDE 1 -->
+        <section class="slide form1">
+          <h1 class="form-title">Personal info</h1>
+          <div class="form-instructions">
+            Please provide your name, email address, and phone number.
+          </div>
+
+          <form action="" class="form-elements">
+            <label for="name"
+              >Name <span class="error">This field is required</span></label
+            >
+            <input
+              type="text"
+              name=""
+              value=""
+              placeholder="e.g. Stephen King"
+              id=""
+            />
+
+            <label for="email"
+              >Email Address
+              <span class="error">This field is required</span></label
+            >
+            <input
+              type="email"
+              name=""
+              value=""
+              placeholder="e.g. stephenking@lorem.com"
+              id=""
+            />
+
+            <label for="tel"
+              >Phone Number
+              <span class="error">This field is required</span></label
+            >
+            <input type="tel" name="" placeholder="e.g. +1 234 567 890" id="" />
+
+            <!-- <button type="submit">Next Step</button> -->
+          </form>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide form2">
+          <h1 class="form-title">Select your plan</h1>
+          <div class="form-instructions">
+            You have the option of monthly or yearly billing.
+          </div>
+          <form action="">
+            <div class="billing-options">
+              <div class="billing-option">
+                <input type="radio" name="option" id="Arcade" />
+                <div class="radio-tile">
+                  <img src="./assets/images/icon-arcade.svg" alt="" />
+                  <label for="Arcade">Arcade<span>$9/mo</span></label>
+                </div>
+              </div>
+              <div class="billing-option">
+                <input type="radio" name="option" id="Advanced" />
+                <div class="radio-tile">
+                  <img src="./assets/images/icon-advanced.svg" alt="" />
+                  <label for="Advanced">Advanced<span>$12/mo</span></label>
+                </div>
+              </div>
+              <div class="billing-option">
+                <input type="radio" name="option" id="Pro" />
+                <div class="radio-tile">
+                  <img src="./assets/images/icon-pro.svg" alt="" />
+                  <label for="Pro">Pro<span>$15/mo</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="modeofpayment">
+              <div class="components">
+                <div class="off-state active">Monthly</div>
+                <div class="switch">
+                  <div class="switch-track">
+                    <div id="toggle-btn"></div>
+                  </div>
+                </div>
+                <div class="on-state">Yearly</div>
+              </div>
+            </div>
+          </form>
+        </section>
+        <!-- SLIDE 3 -->
+        <section class="slide form3">
+          <h1 class="form-title">Pick add-ons</h1>
+          <div class="form-instructions">
+            Add-ons help to enhance your gaming experience.
+          </div>
+
+          <form action="" class="gaming-addons">
+            <div class="gaming-addon">
+              <input
+                type="checkbox"
+                name="online-service"
+                id="online-service"
+              />
+              <div class="addon-text">
+                <label for="online-service" class="description"
+                  >Online service
+                  <span>Access to multiplayer games</span></label
+                >
+                <label for="online-service" class="pricing">+$1/mo</label>
+              </div>
+            </div>
+            <div class="gaming-addon">
+              <input
+                type="checkbox"
+                name="larger-storage"
+                id="larger-storage"
+              />
+              <div class="addon-text">
+                <label for="larger-storage" class="description"
+                  >Larger Storage <span>Extra 1TB of cloud save</span></label
+                >
+                <label for="larger-storage" class="pricing">+$2/mo</label>
+              </div>
+            </div>
+            <div class="gaming-addon">
+              <input type="checkbox" name="profile-theme" id="profile-theme" />
+              <div class="addon-text">
+                <label for="profile-theme" class="description"
+                  >Customizable profile
+                  <span>Custom theme on your profile</span></label
+                >
+                <label for="profile-theme" class="pricing">+$2/mo</label>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide summary">
+          <h1 class="summary-title">Finishing up</h1>
+          <div class="summary-instructions">
+            Double-check everything looks OK before confirming.
+          </div>
+
+          <!-- This form only displays payment summary (It doesn't take any input) -->
+          <form action="">
+            <div class="dark-bg">
+              <div class="selected-plan-rendered">
+                <div class="plan-selection">
+                  <div class="pay-plan-selected"></div>
+                  <a href="#" class="change-plan" data-slide="1">Change</a>
+                </div>
+                <div class="selected-plan-pricing"></div>
+              </div>
+              <div class="seperator"></div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

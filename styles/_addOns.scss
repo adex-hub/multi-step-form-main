@@ -1,0 +1,64 @@
+@import "defaultStyling";
+.form3 {
+  // display: flex;
+  // flex-direction: column;
+  // margin: 60px 0 0 86px;
+  // width: 450px;
+  // color: $coolGray;
+
+  .form-title {
+    font-size: 2rem; //32px
+    color: $marineBlue;
+    margin: 0 0 20px 0;
+  }
+  .form-instructions {
+    font-size: 1rem;
+    margin: 0 0 44px 0;
+  }
+  .gaming-addon {
+    border: 1.5px $coolGray solid;
+    border-radius: 0.5rem;
+    display: flex;
+    height: 79px;
+    align-items: center;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+    input {
+      margin: 0 1.5rem 0 0;
+      accent-color: $purplishBlue;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .addon-text {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      .description {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $marineBlue;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        span {
+          font-size: 14px;
+          font-weight: 400;
+          color: $coolGray;
+        }
+      }
+      .pricing {
+        cursor: pointer;
+        color: $purplishBlue;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+  }
+  .gaming-addon.selected{
+      background: $magnolia;
+      border-color: $purplishBlue;
+  }
+}

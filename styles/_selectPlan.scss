@@ -1,0 +1,141 @@
+@import "defaultStyling";
+.form2 {
+  // display: flex;
+  // flex-direction: column;
+  // margin: 60px 0 0 86px;
+  // width: 450px;
+  // color: $coolGray;
+
+  .form-title {
+    font-size: 2rem;
+    color: $marineBlue;
+    margin: 0 0 20px 0;
+  }
+  .form-instructions {
+    font-size: 1rem;
+    margin: 0 0 44px 0;
+  }
+
+  .billing-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    .billing-option {
+      input {
+        position: absolute;
+        height: 25%;
+        width: 25%;
+        margin: 0;
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.5s ease;
+      }
+
+      input:checked + .radio-tile {
+        background: $magnolia;
+        border-color: $purplishBlue;
+      }
+
+      .radio-tile {
+        display: block;
+        border: 1.5px $coolGray solid;
+        border-radius: 10px;
+        padding: 0 0 0 15px;
+        cursor: pointer;
+
+        img {
+          padding: 20px 0 45px 0;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          color: $marineBlue;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1.4rem;
+          padding: 0 0 1rem 0;
+          span {
+            font-size: 14px;
+            color: $coolGray;
+            font-weight: 400;
+          }
+          .messageClass {
+            color: $marineBlue;
+          }
+        }
+      }
+    }
+  }
+
+  .modeofpayment {
+    margin: 32px 0 0 0;
+    width: 100%;
+    border-radius: 10px;
+    height: 48px;
+    background: $magnolia;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .components {
+      display: flex;
+      justify-content: space-between;
+      width: 180px;
+      .off-state.active {
+        font-weight: 500;
+        color: $marineBlue;
+      }
+      .on-state.active {
+        font-weight: 500;
+        color: $marineBlue;
+      }
+      .switch {
+        .switch-track {
+          width: 40px;
+          height: 20px;
+          background: $marineBlue;
+          border-radius: 1rem;
+          z-index: 10;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          #toggle-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 14px;
+            background: $white;
+            z-index: 99;
+            position: relative;
+            transform: translateX(-60%);
+            transition: all 0.3s ease;
+          }
+          #toggle-btn.active {
+            transform: translateX(60%);
+          }
+        }
+      }
+    }
+  }
+  .error-of-selection {
+    color: $strawberryRed;
+    font-size: 14px;
+    height: auto;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    background: hsla(354, 84%, 57%, 0.047);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    top: 25rem;
+    position: fixed;
+    top: 113%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .error-icon {
+      margin: 0 0.5rem 0 0;
+      font-size: 1.3rem;
+    }
+  }
+}

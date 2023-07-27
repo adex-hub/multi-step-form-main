@@ -1,0 +1,624 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+body {
+  background: hsl(217, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body main {
+  background: hsl(0, 0%, 100%);
+  height: 600px;
+  width: 940px;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+  display: flex;
+}
+body main .sidebar {
+  width: 274px;
+  height: 568px;
+  margin: 16px;
+  background: url(../assets/images/bg-sidebar-desktop.svg);
+  padding: 40px 0 0 30px;
+}
+body main .sidebar .indicator {
+  display: flex;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-items: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  margin: 0 0 30px 0;
+}
+body main .sidebar .indicator .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid hsl(206, 94%, 87%);
+  width: 33px;
+  height: 33px;
+  border-radius: 33px;
+  margin: 0 15px 0 0;
+  transition: all 0.3s ease;
+}
+body main .sidebar .indicator .number.active {
+  background: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+}
+body main .sidebar .indicator .indicator-info {
+  line-height: 1.4rem;
+  letter-spacing: 0.1ch;
+}
+body main .sidebar .indicator .indicator-info .step {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+body main .form1 .form-title {
+  font-size: 2rem;
+  color: hsl(213, 96%, 18%);
+  margin: 0 0 20px 0;
+}
+body main .form1 .form-instructions {
+  font-size: 1rem;
+  margin: 0 0 44px 0;
+}
+body main .form1 .form-elements {
+  display: flex;
+  flex-direction: column;
+}
+body main .form1 .form-elements label {
+  color: hsl(213, 96%, 18%);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+body main .form1 .form-elements label span {
+  color: hsl(354, 84%, 57%);
+  font-weight: 500;
+  font-size: 14px;
+  display: none;
+}
+body main .form1 .form-elements input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 10px 0 24px 0;
+}
+body main .form1 .form-elements input:focus {
+  border-color: hsl(243, 100%, 62%); /* Change the border color */
+  outline: none; /* Remove the default outline (optional, but recommended) */
+}
+body main .form1 .form-elements input.error:focus {
+  border-color: hsl(354, 84%, 57%);
+}
+body main .form1 .form-elements input:nth-last-child(2) {
+  margin-bottom: 0;
+}
+body main .form1 .form-elements input::-moz-placeholder {
+  color: hsl(231, 11%, 63%);
+}
+body main .form1 .form-elements input::placeholder {
+  color: hsl(231, 11%, 63%);
+}
+body main .form1 .form-elements .lower-btns a {
+  opacity: 0;
+  pointer-events: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+.form2 .form-title {
+  font-size: 2rem;
+  color: hsl(213, 96%, 18%);
+  margin: 0 0 20px 0;
+}
+.form2 .form-instructions {
+  font-size: 1rem;
+  margin: 0 0 44px 0;
+}
+.form2 .billing-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.form2 .billing-options .billing-option input {
+  position: absolute;
+  height: 25%;
+  width: 25%;
+  margin: 0;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.form2 .billing-options .billing-option input:checked + .radio-tile {
+  background: hsl(217, 100%, 97%);
+  border-color: hsl(243, 100%, 62%);
+}
+.form2 .billing-options .billing-option .radio-tile {
+  display: block;
+  border: 1.5px hsl(231, 11%, 63%) solid;
+  border-radius: 10px;
+  padding: 0 0 0 15px;
+  cursor: pointer;
+}
+.form2 .billing-options .billing-option .radio-tile img {
+  padding: 20px 0 45px 0;
+}
+.form2 .billing-options .billing-option .radio-tile label {
+  display: flex;
+  flex-direction: column;
+  color: hsl(213, 96%, 18%);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  padding: 0 0 1rem 0;
+}
+.form2 .billing-options .billing-option .radio-tile label span {
+  font-size: 14px;
+  color: hsl(231, 11%, 63%);
+  font-weight: 400;
+}
+.form2 .billing-options .billing-option .radio-tile label .messageClass {
+  color: hsl(213, 96%, 18%);
+}
+.form2 .modeofpayment {
+  margin: 32px 0 0 0;
+  width: 100%;
+  border-radius: 10px;
+  height: 48px;
+  background: hsl(217, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form2 .modeofpayment .components {
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+}
+.form2 .modeofpayment .components .off-state.active {
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.form2 .modeofpayment .components .on-state.active {
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.form2 .modeofpayment .components .switch .switch-track {
+  width: 40px;
+  height: 20px;
+  background: hsl(213, 96%, 18%);
+  border-radius: 1rem;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.form2 .modeofpayment .components .switch .switch-track #toggle-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  background: hsl(0, 0%, 100%);
+  z-index: 99;
+  position: relative;
+  transform: translateX(-60%);
+  transition: all 0.3s ease;
+}
+.form2 .modeofpayment .components .switch .switch-track #toggle-btn.active {
+  transform: translateX(60%);
+}
+.form2 .error-of-selection {
+  color: hsl(354, 84%, 57%);
+  font-size: 14px;
+  height: auto;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  background: hsla(354, 84%, 57%, 0.047);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  top: 25rem;
+  position: fixed;
+  top: 113%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form2 .error-of-selection .error-icon {
+  margin: 0 0.5rem 0 0;
+  font-size: 1.3rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+.form3 .form-title {
+  font-size: 2rem;
+  color: hsl(213, 96%, 18%);
+  margin: 0 0 20px 0;
+}
+.form3 .form-instructions {
+  font-size: 1rem;
+  margin: 0 0 44px 0;
+}
+.form3 .gaming-addon {
+  border: 1.5px hsl(231, 11%, 63%) solid;
+  border-radius: 0.5rem;
+  display: flex;
+  height: 79px;
+  align-items: center;
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+}
+.form3 .gaming-addon input {
+  margin: 0 1.5rem 0 0;
+  accent-color: hsl(243, 100%, 62%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.form3 .gaming-addon .addon-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.form3 .gaming-addon .addon-text .description {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.form3 .gaming-addon .addon-text .description span {
+  font-size: 14px;
+  font-weight: 400;
+  color: hsl(231, 11%, 63%);
+}
+.form3 .gaming-addon .addon-text .pricing {
+  cursor: pointer;
+  color: hsl(243, 100%, 62%);
+  font-weight: 400;
+  font-size: 14px;
+}
+.form3 .gaming-addon.selected {
+  background: hsl(217, 100%, 97%);
+  border-color: hsl(243, 100%, 62%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+.summary .summary-title {
+  font-size: 2rem;
+  color: hsl(213, 96%, 18%);
+  margin: 0 0 20px 0;
+}
+.summary .summary-instructions {
+  font-size: 1rem;
+  margin: 0 0 44px 0;
+}
+.summary form .dark-bg {
+  color: hsl(231, 11%, 63%);
+  background: hsl(217, 100%, 97%);
+  padding: 25px;
+  border-radius: 1rem;
+}
+.summary form .dark-bg .selected-plan-rendered {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.4rem;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+.summary form .dark-bg .selected-plan-rendered .plan-selection .pay-plan-selected {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.summary form .dark-bg .selected-plan-rendered .plan-selection .change-plan {
+  color: hsl(231, 11%, 63%);
+}
+.summary form .dark-bg .selected-plan-rendered .selected-plan-pricing {
+  font-size: 1rem;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.summary form .dark-bg .seperator {
+  width: 100%;
+  height: 1px;
+  background: hsl(229, 24%, 87%);
+}
+.summary .lower-btns button {
+  background: hsl(243, 100%, 62%);
+}/*# sourceMappingURL=style.css.map */

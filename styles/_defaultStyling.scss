@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+// Colors - Primary
+$marineBlue: hsl(213, 96%, 18%);
+$purplishBlue: hsl(243, 100%, 62%);
+$pastelBlue: hsl(228, 100%, 84%);
+$lightBlue: hsl(206, 94%, 87%);
+$strawberryRed: hsl(354, 84%, 57%);
+
+// Colors - Neutral
+$coolGray: hsl(231, 11%, 63%);
+$lightGray: hsl(229, 24%, 87%);
+$magnolia: hsl(217, 100%, 97%);
+$alabaster: hsl(231, 100%, 99%);
+$white: hsl(0, 0%, 100%);
+
+// Bottom navigation
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+  // width: 450px;
+
+  a {
+    text-decoration: none;
+    color: $coolGray;
+  }
+
+  a:hover {
+    color: $marineBlue;
+    transition: all 0.3s ease;
+  }
+
+  button {
+    padding: 1rem;
+    background: $marineBlue;
+    color: $white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    transform: translateX(16.8rem);
+    width: 120px;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: hsl(213, 91%, 21%);
+    cursor: pointer;
+  }
+}
+
+// slide styling
+.slider{
+  overflow: hidden;
+  position: relative;
+  // display: flex;
+  // flex-direction: column;
+  margin: 60px 0 0 86px;
+  width: 450px;
+  // justify-content: center;
+}
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  // margin: 60px 0 0 86px;
+  width: 450px;
+  color: $coolGray;
+
+  /* THIS creates the animation! */
+  transition: transform .6s;
+}

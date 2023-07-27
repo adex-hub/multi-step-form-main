@@ -1,0 +1,135 @@
+@import "defaultStyling";
+body {
+  background: $magnolia;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  main {
+    background: $white;
+    height: 600px;
+    width: 940px;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px $lightGray;
+    display: flex;
+
+    .sidebar {
+      width: 274px;
+      height: 568px;
+      margin: 16px;
+      background: url(../assets/images/bg-sidebar-desktop.svg);
+      padding: 40px 0 0 30px;
+      .indicator {
+        display: flex;
+        height: fit-content;
+        align-items: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $white;
+        margin: 0 0 30px 0;
+
+        .number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid $lightBlue;
+          width: 33px;
+          height: 33px;
+          border-radius: 33px;
+          margin: 0 15px 0 0;
+          transition: all 0.3s ease;
+        }
+
+        .number.active {
+          background: $lightBlue;
+          color: $marineBlue;
+        }
+
+        .indicator-info {
+          line-height: 1.4rem;
+          letter-spacing: 0.1ch;
+          .step {
+            opacity: 0.6;
+            font-size: 0.9rem;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .form1 {
+      // display: flex;
+      // flex-direction: column;
+      // margin: 60px 0 0 86px;
+      // width: 450px;
+      // color: $coolGray;
+
+      .form-title {
+        font-size: 2rem; //32px
+        color: $marineBlue;
+        margin: 0 0 20px 0;
+      }
+      .form-instructions {
+        font-size: 1rem;
+        margin: 0 0 44px 0;
+      }
+      .form-elements {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          color: $marineBlue;
+          font-size: 14px;
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            color: $strawberryRed;
+            font-weight: 500;
+            font-size: 14px;
+            display: none;
+            // text-align: right;
+          }
+        }
+
+        input {
+          width: 100%;
+          height: 48px;
+          border: 1px solid $lightGray;
+          border-radius: 10px;
+          color: $marineBlue;
+          font-weight: 500;
+          font-size: 1rem;
+          padding: 1rem;
+          margin: 10px 0 24px 0;
+        }
+        
+        input:focus {
+          border-color: $purplishBlue; /* Change the border color */
+          outline: none; /* Remove the default outline (optional, but recommended) */
+        }
+
+        input.error:focus {
+          border-color: $strawberryRed;
+        //   outline: solid 1px $strawberryRed;
+        }
+
+        // /* Styles for the input element when focused */
+
+        input:nth-last-child(2) {
+          margin-bottom: 0;
+        }
+
+        input::placeholder {
+          color: $coolGray;
+        }
+
+        .lower-btns {
+          a {
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
