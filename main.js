@@ -3,13 +3,16 @@
 const summarySlide = document.querySelector(".summary");
 let form2Data = [];
 let paymentPlan, paymentDuration, pricePaid;
+let priceValuesForm3, totalPriceForm3, addOnsForm3;
+let form3Numbers = [];
+let selectedAddons, allSelected;
+let summaryTotal;
 
 // For the sidebar
 const indicatorNumbers = document.querySelectorAll(".number");
 
 for (let i = 0; i <= indicatorNumbers.length; i++) {
   indicatorNumbers.forEach((number) => {
-    // number.textContent = i++;
     number.setAttribute("data-slide", `${i++}`);
   });
 }
@@ -17,11 +20,10 @@ for (let i = 0; i <= indicatorNumbers.length; i++) {
 // For slide implementation
 const slides = document.querySelectorAll(".slide");
 const slider = document.querySelector(".slider");
-const controlBtns = document.querySelector(".lower-btns");
-// slider.style.overflow = 'visible';
 
 let currentSlide = 0; // Ensure to correct this after manipulation.
 
+// Functions
 function goToSlide(slide) {
   slides.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
@@ -30,21 +32,26 @@ function goToSlide(slide) {
     if (s.style.transform === `translateX(0%)`) {
       s.classList.add("active-slide");
       if (s.classList.contains("active-slide")) {
-        s.querySelector("form").insertAdjacentHTML(
+        s.querySelector("form")?.insertAdjacentHTML(
           "beforeend",
           `
       <div class="lower-btns" id="lower-btns">
         <a href="#" onClick = "prevSlide()">Go Back</a>
         <button type="submit">Next Step</button>
-      </div>
-      `
+        </div>
+        `
         );
-      } else {
-        const ctrlBtns = document.getElementsById("lower-btns");
-        ctrlBtns.remove(); // This else block is non-functional for some reason.
       }
     }
   });
+}
+function objectify(keys, values) {
+  const newObject = keys.reduce((acc, key, index) => {
+    acc[key] = values[index];
+    return acc;
+  }, {});
+
+  return newObject;
 }
 
 goToSlide(currentSlide);
@@ -57,7 +64,7 @@ const activateStep = function (slide) {
 
   document
     .querySelector(`.number[data-slide = "${slide}"]`)
-    .classList.add("active");
+    ?.classList.add("active");
 };
 
 function nextSlide() {
@@ -76,6 +83,50 @@ function prevSlide() {
   goToSlide(currentSlide);
   activateStep(currentSlide);
   form2Data = []; // Clears previous values of Form2Data;
+  selectedAddons = {};
+  undoRenderAddon();
+  totalPriceForm3 = 0;
+  undoInsertSummaryTotal();
+}
+
+function perMonthOrYear(price) {
+  return `$${price}/${paymentDuration === "Monthly" ? "mo" : "yr"}`;
+}
+
+function renderAddon(object) {
+  for (const [key, value] of Object.entries(object)) {
+    document.querySelector(".dark-bg").insertAdjacentHTML(
+      "beforeend",
+      `
+    <div class="addon">
+      <div class="addon-name">${key}</div>
+      <div class="addon-price">${perMonthOrYear(value)}</div>
+    </div>
+    `
+    );
+  }
+}
+
+function undoRenderAddon() {
+  document.querySelectorAll(".addon").forEach((addon) => addon.remove());
+}
+
+function insertSummaryTotal() {
+  document.querySelector(".summary form").insertAdjacentHTML(
+    "beforeend",
+    `
+  <div class="total">
+    <div class="total-label">Total (per ${
+      paymentDuration === "Monthly" ? "month" : "year"
+    })</div>
+    <div class="total-price">${perMonthOrYear(summaryTotal)}</div>
+  </div>
+  `
+  );
+}
+
+function undoInsertSummaryTotal() {
+  document.querySelectorAll(".total").forEach((price) => price.remove());
 }
 
 // For Step 1 [Form]
@@ -83,7 +134,7 @@ const allInputs = document.querySelectorAll(".form-elements input");
 const actualForm = document.querySelector(".form-elements");
 const errorMessages = document.querySelectorAll(".form-elements label>span");
 
-// User data input, might use formData later.
+// User data input, might use formData API later.
 const nameInput = document.querySelector(".form-elements input[type=text]");
 const telInput = document.querySelector("input[type=tel]");
 const emailInput = document.querySelector("input[type=email]");
@@ -213,9 +264,7 @@ document
     const pricingHTML = document.querySelector(".selected-plan-pricing");
 
     planHTML.textContent = `${paymentPlan} (${paymentDuration})`;
-    pricingHTML.textContent = `$${pricePaid}/${
-      paymentDuration === "Monthly" ? "mo" : "yr"
-    }`;
+    pricingHTML.textContent = `${perMonthOrYear(pricePaid)}`;
   });
 
 // For Step 3 [Pick add-ons]
@@ -227,17 +276,9 @@ checkBoxes.forEach((checkBox) =>
   //// ->[FUNCTIONALITY] Enabling selected state for each gaming addon that is clicked.
   checkBox.addEventListener("click", () => {
     checkBox.closest(".gaming-addon").classList.toggle("selected");
-    const allSelected = Array.from(
+    allSelected = Array.from(
       document.querySelectorAll(".selected > .addon-text > .pricing")
     );
-
-    //// -> [DATA] Getting the price of each selected addon.
-    const priceValues = allSelected.map(
-      (el) => +el.textContent.replace(/\D/g, "")
-    );
-    //// -> [DATA] Total price of selected addons
-    // const totalPrice = `$${priceValues.reduce((acc, cur) => acc + cur, 0)}`;
-    console.log(priceValues);
   })
 );
 
@@ -246,6 +287,22 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
     nextSlide();
+    //// -> [DATA COLLECTION]
+    priceValuesForm3 = allSelected.map(
+      (el) => +el.textContent.replace(/\D/g, "")
+    );
+    addOnsForm3 = allSelected.map((el) => el.getAttribute("for"));
+    selectedAddons =
+      priceValuesForm3 === undefined
+        ? {}
+        : objectify(addOnsForm3, priceValuesForm3);
+    renderAddon(selectedAddons);
+    totalPriceForm3 =
+      priceValuesForm3 === undefined
+        ? 0
+        : priceValuesForm3.reduce((acc, cur) => acc + cur, 0);
+    summaryTotal = pricePaid + totalPriceForm3;
+    insertSummaryTotal(); // Rendering the total price to DOM.
   });
 
 // For step 4 [Finishing up]
@@ -256,4 +313,14 @@ changePlan.addEventListener("click", function () {
   goToSlide(slide);
   activateStep(slide);
   form2Data = []; // Clears previous values of Form2Data;
+  selectedAddons = {};
+  undoRenderAddon();
+  totalPriceForm3 = 0;
+  undoInsertSummaryTotal();
 });
+
+document.querySelector('.summary form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  nextSlide();
+  activateStep(3)
+})

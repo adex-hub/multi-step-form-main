@@ -301,12 +301,13 @@ body main .form1 .form-elements .lower-btns a {
 }
 .form2 .billing-options .billing-option input {
   position: absolute;
-  height: 25%;
-  width: 25%;
+  height: 60%;
+  width: 40%;
   margin: 0;
   z-index: 2;
   opacity: 0;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .form2 .billing-options .billing-option input:checked + .radio-tile {
   background: hsl(217, 100%, 97%);
@@ -317,7 +318,6 @@ body main .form1 .form-elements .lower-btns a {
   border: 1.5px hsl(231, 11%, 63%) solid;
   border-radius: 10px;
   padding: 0 0 0 15px;
-  cursor: pointer;
 }
 .form2 .billing-options .billing-option .radio-tile img {
   padding: 20px 0 45px 0;
@@ -361,6 +361,9 @@ body main .form1 .form-elements .lower-btns a {
 .form2 .modeofpayment .components .on-state.active {
   font-weight: 500;
   color: hsl(213, 96%, 18%);
+}
+.form2 .modeofpayment .components .switch {
+  cursor: pointer;
 }
 .form2 .modeofpayment .components .switch .switch-track {
   width: 40px;
@@ -618,7 +621,108 @@ body main .form1 .form-elements .lower-btns a {
   width: 100%;
   height: 1px;
   background: hsl(229, 24%, 87%);
+  margin: 0 0 0.8rem 0;
+}
+.summary form .dark-bg .addon {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+}
+.summary form .dark-bg .addon .addon-price {
+  color: hsl(213, 96%, 18%);
+}
+.summary form .total {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.summary form .total .total-price {
+  color: hsl(243, 100%, 62%);
+  font-size: 20px;
+  font-weight: 500;
 }
 .summary .lower-btns button {
   background: hsl(243, 100%, 62%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+
+.slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+.thank-you {
+  margin: -1rem 0 0 0;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+.thank-you img {
+  width: 18%;
+}
+.thank-you .thanks-title {
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+  font-size: 2rem;
+  margin: 30px 0 1rem 0;
+}
+.thank-you .thank-you-message {
+  text-align: center;
+  line-height: 1.6rem;
+  color: hsl(231, 11%, 63%);
 }/*# sourceMappingURL=style.css.map */

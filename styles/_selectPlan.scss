@@ -23,12 +23,13 @@
     .billing-option {
       input {
         position: absolute;
-        height: 25%;
-        width: 25%;
+        height: 60%;
+        width: 40%;
         margin: 0;
         z-index: 2;
         opacity: 0;
         transition: all 0.5s ease;
+        cursor: pointer;
       }
 
       input:checked + .radio-tile {
@@ -41,7 +42,6 @@
         border: 1.5px $coolGray solid;
         border-radius: 10px;
         padding: 0 0 0 15px;
-        cursor: pointer;
 
         img {
           padding: 20px 0 45px 0;
@@ -90,6 +90,7 @@
         color: $marineBlue;
       }
       .switch {
+        cursor: pointer;
         .switch-track {
           width: 40px;
           height: 20px;

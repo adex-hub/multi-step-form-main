@@ -37,12 +37,31 @@
           color: $marineBlue;
           font-weight: 500;
         }
+      }
+      .seperator {
+        width: 100%;
+        height: 1px;
+        background: $lightGray;
+        margin: 0 0 .8rem 0;
+      }
+      .addon {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 0;
+        .addon-price {
+          color: $marineBlue;
+        }
+      }
     }
-    .seperator {
-      width: 100%;
-      height: 1px;
-      background: $lightGray;
-    }
+    .total {
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      .total-price {
+        color: $purplishBlue;
+        font-size: 20px;
+        font-weight: 500;
+      }
     }
   }
 
