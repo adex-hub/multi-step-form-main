@@ -203,8 +203,8 @@ actualForm?.addEventListener("submit", (e) => {
       input.focus();
       input.classList.add("error");
       errorMessages.forEach((message) => (message.style.display = "flex"));
+      adjustControlsPosition(); 
     });
-    adjustControlsPosition();
   } else if (!validationPatterns.name.test(nameInput.value)) {
     errorMessages.forEach((message) => (message.style.display = "none"));
     nameInput.focus();
