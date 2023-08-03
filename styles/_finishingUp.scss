@@ -71,3 +71,22 @@
     }
   }
 }
+
+@media (max-width: 580px){
+  .summary {
+    .summary-title{
+      font-size: 1.5rem;
+    }
+    .summary-instructions {
+      margin: 0 0 30px 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .lower-btns{
+      margin-top: -150px;
+    }
+  }
+}

@@ -5,14 +5,15 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: all 0.3s ease;
   main {
     background: $white;
     height: 600px;
-    width: 940px;
+    max-width: 940px;
     border-radius: 20px;
     box-shadow: 0 5px 30px $lightGray;
     display: flex;
-
+    padding: 0 96px 0 0; //responsive
     .sidebar {
       width: 274px;
       height: 568px;
@@ -102,7 +103,7 @@ body {
           padding: 1rem;
           margin: 10px 0 24px 0;
         }
-        
+
         input:focus {
           border-color: $purplishBlue; /* Change the border color */
           outline: none; /* Remove the default outline (optional, but recommended) */
@@ -110,7 +111,7 @@ body {
 
         input.error:focus {
           border-color: $strawberryRed;
-        //   outline: solid 1px $strawberryRed;
+          //   outline: solid 1px $strawberryRed;
         }
 
         // /* Styles for the input element when focused */
@@ -127,6 +128,88 @@ body {
           a {
             opacity: 0;
             pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 960px) {
+  body {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 770px) {
+  body {
+    transform: scale(0.6);
+  }
+}
+// or max-width: 562px (immediately before the horizontal slider sets in.)
+@media (max-width: 580px) {
+  body {
+    transform: scale(1);
+    main {
+      flex-direction: column;
+      padding: 0;
+      height: 100vh;
+      // width: 100vw;
+      background: $magnolia;
+      justify-content: center;
+      // max-width: 100%;
+      width: 100%;
+      .sidebar {
+        background: url(../assets/images/bg-sidebar-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+        height: 172px;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        // z-index: 2;
+        .indicator {
+          margin: 0;
+          padding: 33px 0;
+        }
+        .indicator-info {
+          display: none;
+        }
+      }
+      @for $i from 1 to 4 {
+        //ensure to do the same for slide 4 later on as this only covers from slide 1 to 3. ✅
+        .form#{$i} {
+          .form-title{
+            font-size: 1.5rem;
+          }
+          .form-instructions {
+            margin: 0 0 30px 0;
+          }
+          form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+      }
+      .form1 {
+        margin: 0 1rem 0 0;
+        .form-elements {
+          label {
+            font-size: 12px;
+            span {
+              font-size: 12px;
+            }
+          }
+          input {
+            margin: 6px 0 1rem 0;
+            height: 38px;
+            font-size: 15px;
+            border-radius: 5px;
           }
         }
       }

@@ -6,7 +6,8 @@ let paymentPlan, paymentDuration, pricePaid;
 let priceValuesForm3, totalPriceForm3, addOnsForm3;
 let form3Numbers = [];
 let selectedAddons, allSelected;
-let summaryTotal;
+let summaryTotal, controls;
+let isMobile = false;
 
 // For the sidebar
 const indicatorNumbers = document.querySelectorAll(".number");
@@ -23,11 +24,27 @@ const slider = document.querySelector(".slider");
 
 let currentSlide = 0; // Ensure to correct this after manipulation.
 
+// This decides the version of slide to be used.
+window.addEventListener('load', () => {
+  slidePicker();
+  adjustControlsPosition();
+})
+
 // Functions
+function slidePicker(slide) {
+  isMobile ? mobileSlide(slide) : goToSlide(slide);
+}
+
+slidePicker(currentSlide);
+
 function goToSlide(slide) {
   slides.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
     s.classList.remove("active-slide");
+
+    if (!s.classList.contains("active-slide")) {
+      s.querySelectorAll(".lower-btns").forEach((btn) => btn.remove());
+    }
 
     if (s.style.transform === `translateX(0%)`) {
       s.classList.add("active-slide");
@@ -35,9 +52,9 @@ function goToSlide(slide) {
         s.querySelector("form")?.insertAdjacentHTML(
           "beforeend",
           `
-      <div class="lower-btns" id="lower-btns">
-        <a href="#" onClick = "prevSlide()">Go Back</a>
-        <button type="submit">Next Step</button>
+        <div class="lower-btns" id="lower-btns">
+          <a href="#" onClick = "prevSlide()">Go Back</a>
+          <button type="submit">Next Step</button>
         </div>
         `
         );
@@ -45,6 +62,38 @@ function goToSlide(slide) {
     }
   });
 }
+
+function mobileSlide(slide) {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+    s.classList.remove("active-slide");
+
+    if (!s.classList.contains("active-slide")) {
+      s.querySelectorAll(".lower-btns").forEach((btn) => btn.remove());
+    }
+
+    if (s.style.transform === `translateX(0%)`) {
+      s.style.display = "flex"; // This is what fixed the issue that I had (might change it to visibility)
+      s.classList.add("active-slide");
+      if (s.classList.contains("active-slide")) {
+        s.querySelector("form")?.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="lower-btns" id="lower-btns">
+          <a href="#" onClick = "prevSlide()">Go Back</a>
+          <button type="submit">Next Step</button>
+        </div>
+        `
+        );
+      }
+    } else {
+      s.style.display = "none"; // And this too.
+    }
+  });
+}
+
+
+
 function objectify(keys, values) {
   const newObject = keys.reduce((acc, key, index) => {
     acc[key] = values[index];
@@ -53,8 +102,6 @@ function objectify(keys, values) {
 
   return newObject;
 }
-
-goToSlide(currentSlide);
 
 const activateStep = function (slide) {
   // How this function works is that we remove the active class of the dots before adding the active class to the specific dot that's actually active.
@@ -69,7 +116,7 @@ const activateStep = function (slide) {
 
 function nextSlide() {
   currentSlide++;
-  goToSlide(currentSlide);
+  slidePicker(currentSlide);
   activateStep(currentSlide);
 
   // Changes text of the payment summary slide.
@@ -80,13 +127,14 @@ function nextSlide() {
 
 function prevSlide() {
   currentSlide--;
-  goToSlide(currentSlide);
+  slidePicker(currentSlide);
   activateStep(currentSlide);
   form2Data = []; // Clears previous values of Form2Data;
   selectedAddons = {};
   undoRenderAddon();
   totalPriceForm3 = 0;
   undoInsertSummaryTotal();
+  adjustControlsPosition();
 }
 
 function perMonthOrYear(price) {
@@ -100,7 +148,7 @@ function renderAddon(object) {
       `
     <div class="addon">
       <div class="addon-name">${key}</div>
-      <div class="addon-price">${perMonthOrYear(value)}</div>
+      <div class="addon-price">+${perMonthOrYear(value)}</div>
     </div>
     `
     );
@@ -147,6 +195,7 @@ const validationPatterns = {
 
 actualForm?.addEventListener("submit", (e) => {
   e.preventDefault();
+  adjustControlsPosition();
 
   // Form validation
   if (Array.from(allInputs).every((input) => input.value === "")) {
@@ -155,6 +204,7 @@ actualForm?.addEventListener("submit", (e) => {
       input.classList.add("error");
       errorMessages.forEach((message) => (message.style.display = "flex"));
     });
+    adjustControlsPosition();
   } else if (!validationPatterns.name.test(nameInput.value)) {
     errorMessages.forEach((message) => (message.style.display = "none"));
     nameInput.focus();
@@ -162,6 +212,7 @@ actualForm?.addEventListener("submit", (e) => {
     const [nameError, ,] = [...errorMessages];
     nameError.textContent = "Enter name correctly";
     errorMessages[0].style.display = "flex";
+    adjustControlsPosition();
   } else if (!validationPatterns.email.test(emailInput.value)) {
     errorMessages.forEach((message) => (message.style.display = "none"));
     emailInput.focus();
@@ -169,6 +220,7 @@ actualForm?.addEventListener("submit", (e) => {
     const [, emailError] = [...errorMessages];
     emailError.textContent = "Enter email correctly";
     errorMessages[1].style.display = "flex";
+    adjustControlsPosition();
   } else if (!validationPatterns.telephone.test(telInput.value)) {
     errorMessages.forEach((message) => (message.style.display = "none"));
     telInput.focus();
@@ -176,9 +228,11 @@ actualForm?.addEventListener("submit", (e) => {
     const [, , telError] = [...errorMessages];
     telError.textContent = "Enter phone number correctly";
     errorMessages[2].style.display = "flex";
+    adjustControlsPosition();
   } else {
     errorMessages.forEach((message) => (message.style.display = "none"));
     nextSlide(); // -100%, 0%, 100%, 200% ...
+    adjustControlsPosition();
   }
 });
 
@@ -193,13 +247,14 @@ function displayError() {
   const errorMessage = document.createElement("div");
   errorMessage.classList.add("error-of-selection");
   errorMessage.innerHTML = `
-      <ion-icon name="close-circle" class="error-icon"></ion-icon>
+    <img class = "error-icon" src="close-circle.svg">
       select a payment plan!
     `;
   document.querySelector(".modeofpayment").after(errorMessage);
   setTimeout(() => {
     document.querySelector(".error-of-selection").style.display = "none";
   }, 2000);
+  adjustControlsPosition();
 }
 
 toggleSwitch?.addEventListener("click", () => {
@@ -265,6 +320,7 @@ document
 
     planHTML.textContent = `${paymentPlan} (${paymentDuration})`;
     pricingHTML.textContent = `${perMonthOrYear(pricePaid)}`;
+    adjustControlsPosition();
   });
 
 // For Step 3 [Pick add-ons]
@@ -303,6 +359,7 @@ document
         : priceValuesForm3.reduce((acc, cur) => acc + cur, 0);
     summaryTotal = pricePaid + totalPriceForm3;
     insertSummaryTotal(); // Rendering the total price to DOM.
+    adjustControlsPosition();
   });
 
 // For step 4 [Finishing up]
@@ -310,17 +367,42 @@ const changePlan = document.querySelector(".change-plan");
 changePlan.addEventListener("click", function () {
   const slide = changePlan.dataset.slide;
   currentSlide = slide;
-  goToSlide(slide);
+  slidePicker(slide);
   activateStep(slide);
   form2Data = []; // Clears previous values of Form2Data;
   selectedAddons = {};
   undoRenderAddon();
   totalPriceForm3 = 0;
   undoInsertSummaryTotal();
+  adjustControlsPosition();
 });
 
-document.querySelector('.summary form').addEventListener('submit', (e) => {
+document.querySelector(".summary form").addEventListener("submit", (e) => {
   e.preventDefault();
   nextSlide();
-  activateStep(3)
-})
+  activateStep(3);
+});
+
+//Function that keeps the controls. (Attempting ForEach Usage)
+function adjustControlsPosition() {
+  controls = document.querySelectorAll(".lower-btns");
+  controls.forEach((control) => {
+    let controlsRect = control.getBoundingClientRect();
+    if (window.innerWidth <= 580) {
+      isMobile = true;
+      const distanceToBottom = Math.floor(
+        window.innerHeight - controlsRect.bottom
+      );
+      control.style.transform = `translateY(${distanceToBottom}px)`;
+    }
+  });
+}
+
+// For mobile (Checks if the user is on phone hence no browser resize occurs)
+adjustControlsPosition();
+
+// For handling cases where the browser is resized to check degree of responsiveness.
+window.addEventListener("resize", () => {
+  adjustControlsPosition();
+  isMobile = window.innerWidth <= 580 ? true : false;
+});

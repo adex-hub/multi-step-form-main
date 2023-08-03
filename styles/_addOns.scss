@@ -62,3 +62,29 @@
       border-color: $purplishBlue;
   }
 }
+
+@media (max-width: 580px){
+    .form3{
+      padding: 0;
+      .gaming-addon{
+        padding: 0;
+        height: auto;
+        input{
+          margin: 20px 15px;
+        }
+        .addon-text{
+          line-height: 2ch;
+          .description{
+            font-size: 14px;
+            span{
+              font-size: 12px;
+            }
+          }
+          .pricing{
+            font-size: 12px;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+}

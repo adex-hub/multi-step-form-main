@@ -129,14 +129,47 @@
     background: hsla(354, 84%, 57%, 0.047);
     border-radius: 0.5rem;
     padding: 0.8rem;
-    top: 25rem;
     position: fixed;
     top: 113%;
     left: 50%;
     transform: translate(-50%, -50%);
     .error-icon {
       margin: 0 0.5rem 0 0;
-      font-size: 1.3rem;
+      width: 1rem;
+    }
+  }
+}
+
+//For mobile
+@media (max-width: 580px) {
+  .form2 {
+    .billing-options {
+      grid-template-columns: 100%;
+      .billing-option {
+        input {
+          width: 85.6%;
+          height: 15%;
+        }
+
+        .radio-tile {
+          display: flex;
+          align-items: center;
+          height: auto;
+          padding: 0;
+          img {
+            padding: 19px 15px;
+          }
+          label {
+            padding: 0;
+          }
+        }
+      }
+    }
+    .error-of-selection{
+      background: hsla(354, 84%, 57%, 0.24);
+      position: absolute;
+      top: 105%;
+      font-size: 12px;
     }
   }
 }

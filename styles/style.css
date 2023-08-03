@@ -45,8 +45,7 @@
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -56,6 +55,44 @@
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -103,8 +140,7 @@
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -114,20 +150,60 @@
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 body {
   background: hsl(217, 100%, 97%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: all 0.3s ease;
 }
 body main {
   background: hsl(0, 0%, 100%);
   height: 600px;
-  width: 940px;
+  max-width: 940px;
   border-radius: 20px;
   box-shadow: 0 5px 30px hsl(229, 24%, 87%);
   display: flex;
+  padding: 0 96px 0 0;
 }
 body main .sidebar {
   width: 274px;
@@ -227,6 +303,97 @@ body main .form1 .form-elements .lower-btns a {
   pointer-events: none;
 }
 
+@media (max-width: 960px) {
+  body {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 770px) {
+  body {
+    transform: scale(0.6);
+  }
+}
+@media (max-width: 580px) {
+  body {
+    transform: scale(1);
+  }
+  body main {
+    flex-direction: column;
+    padding: 0;
+    height: 100vh;
+    background: hsl(217, 100%, 97%);
+    justify-content: center;
+    width: 100%;
+  }
+  body main .sidebar {
+    background: url(../assets/images/bg-sidebar-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    height: 172px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+  }
+  body main .sidebar .indicator {
+    margin: 0;
+    padding: 33px 0;
+  }
+  body main .sidebar .indicator-info {
+    display: none;
+  }
+  body main .form1 .form-title {
+    font-size: 1.5rem;
+  }
+  body main .form1 .form-instructions {
+    margin: 0 0 30px 0;
+  }
+  body main .form1 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  body main .form2 .form-title {
+    font-size: 1.5rem;
+  }
+  body main .form2 .form-instructions {
+    margin: 0 0 30px 0;
+  }
+  body main .form2 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  body main .form3 .form-title {
+    font-size: 1.5rem;
+  }
+  body main .form3 .form-instructions {
+    margin: 0 0 30px 0;
+  }
+  body main .form3 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  body main .form1 {
+    margin: 0 1rem 0 0;
+  }
+  body main .form1 .form-elements label {
+    font-size: 12px;
+  }
+  body main .form1 .form-elements label span {
+    font-size: 12px;
+  }
+  body main .form1 .form-elements input {
+    margin: 6px 0 1rem 0;
+    height: 38px;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -274,8 +441,7 @@ body main .form1 .form-elements .lower-btns a {
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -285,6 +451,44 @@ body main .form1 .form-elements .lower-btns a {
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 .form2 .form-title {
   font-size: 2rem;
   color: hsl(213, 96%, 18%);
@@ -400,7 +604,6 @@ body main .form1 .form-elements .lower-btns a {
   background: hsla(354, 84%, 57%, 0.047);
   border-radius: 0.5rem;
   padding: 0.8rem;
-  top: 25rem;
   position: fixed;
   top: 113%;
   left: 50%;
@@ -408,9 +611,36 @@ body main .form1 .form-elements .lower-btns a {
 }
 .form2 .error-of-selection .error-icon {
   margin: 0 0.5rem 0 0;
-  font-size: 1.3rem;
+  width: 1rem;
 }
 
+@media (max-width: 580px) {
+  .form2 .billing-options {
+    grid-template-columns: 100%;
+  }
+  .form2 .billing-options .billing-option input {
+    width: 85.6%;
+    height: 15%;
+  }
+  .form2 .billing-options .billing-option .radio-tile {
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 0;
+  }
+  .form2 .billing-options .billing-option .radio-tile img {
+    padding: 19px 15px;
+  }
+  .form2 .billing-options .billing-option .radio-tile label {
+    padding: 0;
+  }
+  .form2 .error-of-selection {
+    background: hsla(354, 84%, 57%, 0.24);
+    position: absolute;
+    top: 105%;
+    font-size: 12px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -458,8 +688,7 @@ body main .form1 .form-elements .lower-btns a {
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -469,6 +698,44 @@ body main .form1 .form-elements .lower-btns a {
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 .form3 .form-title {
   font-size: 2rem;
   color: hsl(213, 96%, 18%);
@@ -524,6 +791,31 @@ body main .form1 .form-elements .lower-btns a {
   border-color: hsl(243, 100%, 62%);
 }
 
+@media (max-width: 580px) {
+  .form3 {
+    padding: 0;
+  }
+  .form3 .gaming-addon {
+    padding: 0;
+    height: auto;
+  }
+  .form3 .gaming-addon input {
+    margin: 20px 15px;
+  }
+  .form3 .gaming-addon .addon-text {
+    line-height: 2ch;
+  }
+  .form3 .gaming-addon .addon-text .description {
+    font-size: 14px;
+  }
+  .form3 .gaming-addon .addon-text .description span {
+    font-size: 12px;
+  }
+  .form3 .gaming-addon .addon-text .pricing {
+    font-size: 12px;
+    margin-right: 15px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -571,8 +863,7 @@ body main .form1 .form-elements .lower-btns a {
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -582,6 +873,44 @@ body main .form1 .form-elements .lower-btns a {
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 .summary .summary-title {
   font-size: 2rem;
   color: hsl(213, 96%, 18%);
@@ -645,6 +974,22 @@ body main .form1 .form-elements .lower-btns a {
   background: hsl(243, 100%, 62%);
 }
 
+@media (max-width: 580px) {
+  .summary .summary-title {
+    font-size: 1.5rem;
+  }
+  .summary .summary-instructions {
+    margin: 0 0 30px 0;
+  }
+  .summary form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .summary .lower-btns {
+    margin-top: -150px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -692,8 +1037,7 @@ body main .form1 .form-elements .lower-btns a {
   margin: 60px 0 0 86px;
   width: 450px;
 }
-
-.slide {
+.slider .slide {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -703,6 +1047,44 @@ body main .form1 .form-elements .lower-btns a {
   transition: transform 0.6s;
 }
 
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 .thank-you {
   margin: -1rem 0 0 0;
   display: flex;
@@ -725,4 +1107,15 @@ body main .form1 .form-elements .lower-btns a {
   text-align: center;
   line-height: 1.6rem;
   color: hsl(231, 11%, 63%);
+}
+
+@media (max-width: 580px) {
+  .thank-you {
+    margin: 0;
+    height: 400px;
+  }
+  .thank-you .thanks-title {
+    font-size: 1.5rem;
+    margin: 27px 0 1rem 0;
+  }
 }/*# sourceMappingURL=style.css.map */

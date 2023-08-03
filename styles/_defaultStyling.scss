@@ -19,6 +19,8 @@ $magnolia: hsl(217, 100%, 97%);
 $alabaster: hsl(231, 100%, 99%);
 $white: hsl(0, 0%, 100%);
 
+$align-bottom: calc(30vh - 72px); //Translation value to align to bottom of page.
+
 // Bottom navigation
 .lower-btns {
   position: fixed;
@@ -60,19 +62,68 @@ $white: hsl(0, 0%, 100%);
 }
 
 // slide styling
-.slider{
+.slider {
   overflow: hidden;
   position: relative;
   margin: 60px 0 0 86px;
   width: 450px;
-}
-.slide {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 450px;
-  color: $coolGray;
+  .slide {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    color: $coolGray;
 
-  /* THIS creates the animation! */
-  transition: transform .6s;
+    /* THIS creates the animation! */
+    transition: transform 0.6s;
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  // h1 + p{
+  //   margin: 0 0 30px 0;
+  // }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    // width: 100vw;
+    // max-width: 343px;
+
+    width: auto;
+    .slide {
+      z-index: 99;
+      background: $white;
+      box-shadow: 0 5px 30px $lightGray;
+      max-width: 343px;
+      padding: 35px 1.5rem 25px;
+      border-radius: 10px;
+      margin: 99px 0 0 0;
+    }
+
+    .lower-btns {
+      width: 100vw;
+      height: 72px;
+      background: $white;
+      position: absolute;
+      bottom: 0;
+      align-self: center;
+      padding: 0 1.5rem;
+      // transform: translateY($align-bottom);
+      top: unset;
+      // margin: auto;
+      button {
+        transform: translateX(0);
+      }
+    }
+  }
 }

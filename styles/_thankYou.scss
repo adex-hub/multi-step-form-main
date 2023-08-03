@@ -23,3 +23,14 @@
         color: $coolGray;
     }
 }
+
+@media (max-width: 580px){
+    .thank-you{
+        margin: 0;
+        height: 400px;
+        .thanks-title{
+            font-size: 1.5rem;
+            margin: 27px 0 1rem 0;
+        }
+    }
+}
