@@ -51,8 +51,6 @@ Users should be able to:
 
 I actually just completed my `JavaScript 2023: Zero to Mastery Course` and I was looking for the perfect project to practice on, and this turned out to be the perfect one. I really like this function which was very useful in my being able to implement the slider in the multi-step form.
 
-To see how you can add code snippets, see below:
-
 ```js
 function goToSlide(slide) {
   slides.forEach((s, i) => {
