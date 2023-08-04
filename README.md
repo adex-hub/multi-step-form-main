@@ -16,8 +16,6 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -79,8 +77,6 @@ function goToSlide(slide) {
 ### Continued development
 
 In future projects I want to work more with APIs, improve my algorithm scripting and learn frameworks like React ⚛️ && Vue ✌🏿
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ### Useful resources
 

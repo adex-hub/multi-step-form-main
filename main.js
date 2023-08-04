@@ -248,7 +248,7 @@ function displayError() {
   const errorMessage = document.createElement("div");
   errorMessage.classList.add("error-of-selection");
   errorMessage.innerHTML = `
-    <img class = "error-icon" src="close-circle.svg">
+    <img class = "error-icon" src="./assets/images/close-circle.svg" alt="error-icon">
       select a payment plan!
     `;
   document.querySelector(".modeofpayment").after(errorMessage);
