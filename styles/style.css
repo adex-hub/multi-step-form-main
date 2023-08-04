@@ -188,6 +188,128 @@
     transform: translateX(0);
   }
 }
+.spinner-bg {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9999;
+  background: hsl(217, 100%, 97%);
+}
+
+.spinner {
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid rgba(0, 0, 0, 0.1);
+  border-left-color: hsl(243, 100%, 62%);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lower-btns {
+  position: fixed;
+  top: 23rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  margin: 100px 0 0 0;
+  font-weight: 500;
+}
+.lower-btns a {
+  text-decoration: none;
+  color: hsl(231, 11%, 63%);
+}
+.lower-btns a:hover {
+  color: hsl(213, 96%, 18%);
+  transition: all 0.3s ease;
+}
+.lower-btns button {
+  padding: 1rem;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  transform: translateX(16.8rem);
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.lower-btns button:hover {
+  background: hsl(213, 91%, 21%);
+  cursor: pointer;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0 0 86px;
+  width: 450px;
+}
+.slider .slide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  color: hsl(231, 11%, 63%);
+  /* THIS creates the animation! */
+  transition: transform 0.6s;
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  section {
+    margin-right: 1rem;
+  }
+  .slider {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    width: auto;
+  }
+  .slider .slide {
+    z-index: 99;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 5px 30px hsl(229, 24%, 87%);
+    max-width: 343px;
+    padding: 35px 1.5rem 25px;
+    border-radius: 10px;
+    margin: 99px 0 0 0;
+  }
+  .slider .lower-btns {
+    width: 100vw;
+    height: 72px;
+    background: hsl(0, 0%, 100%);
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    padding: 0 1.5rem;
+    top: unset;
+  }
+  .slider .lower-btns button {
+    transform: translateX(0);
+  }
+}
 body {
   background: hsl(217, 100%, 97%);
   display: flex;

@@ -1,0 +1,28 @@
+@import "defaultStyling";
+
+.spinner-bg {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    background: $magnolia;
+  }
+  .spinner {
+    width: 4em;
+    height: 4em;
+    border: 0.5em solid rgba(0, 0, 0, 0.1);
+    border-left-color: $purplishBlue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }  

@@ -28,6 +28,7 @@ let currentSlide = 0; // Ensure to correct this after manipulation.
 window.addEventListener('load', () => {
   slidePicker();
   adjustControlsPosition();
+  document.querySelector('.spinner-bg').style.visibility = 'hidden';
 })
 
 // Functions
