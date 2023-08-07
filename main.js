@@ -25,11 +25,11 @@ const slider = document.querySelector(".slider");
 let currentSlide = 0; // Ensure to correct this after manipulation.
 
 // This decides the version of slide to be used.
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   slidePicker();
   adjustControlsPosition();
-  document.querySelector('.spinner-bg').style.visibility = 'hidden';
-})
+  document.querySelector(".spinner-bg").style.visibility = "hidden";
+});
 
 // Functions
 function slidePicker(slide) {
@@ -92,8 +92,6 @@ function mobileSlide(slide) {
     }
   });
 }
-
-
 
 function objectify(keys, values) {
   const newObject = keys.reduce((acc, key, index) => {
@@ -204,7 +202,7 @@ actualForm?.addEventListener("submit", (e) => {
       input.focus();
       input.classList.add("error");
       errorMessages.forEach((message) => (message.style.display = "flex"));
-      adjustControlsPosition(); 
+      adjustControlsPosition();
     });
   } else if (!validationPatterns.name.test(nameInput.value)) {
     errorMessages.forEach((message) => (message.style.display = "none"));
@@ -403,7 +401,10 @@ function adjustControlsPosition() {
 adjustControlsPosition();
 
 // For handling cases where the browser is resized to check degree of responsiveness.
-window.addEventListener("resize", () => {
-  adjustControlsPosition();
-  isMobile = window.innerWidth <= 580 ? true : false;
-});
+// window.addEventListener("resize", () => {
+//   adjustControlsPosition();
+//   isMobile = window.innerWidth <= 580 ? true : false;
+// });
+
+// After releasing this I found out that on phones people were experiencing problems with the submit button
+// Hence the reason for the commented code above.
